@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.messaging.converter.MessageConverter;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.invocation.HandlerMethodArgumentResolver;
 import org.springframework.messaging.handler.invocation.HandlerMethodReturnValueHandler;
 import org.springframework.messaging.simp.config.ChannelRegistration;
@@ -78,7 +79,7 @@ public class WebSocketStompConfig extends WebSocketMessageBrokerConfigurationSup
     }
 
     @Bean
-    public WebSocketHandler customWebSocketHandler() {
+    public WebSocketHandler subProtocolWebSocketHandler() {
         return new CustomWebSocketHandler(clientInboundChannel(), clientOutboundChannel());
     }
 }

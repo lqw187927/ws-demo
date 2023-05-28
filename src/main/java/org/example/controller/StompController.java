@@ -26,5 +26,4 @@ public class StompController {
         return "http-reply: " + message;
     }
 
-
 }
