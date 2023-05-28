@@ -2,8 +2,6 @@ package org.example.config;
 
 import lombok.NonNull;
 import org.example.interceptor.WebSocketInterceptor;
-import org.example.service.WebSocket;
-import org.example.service.WebSocketImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
@@ -18,13 +16,8 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfiguration implements WebSocketConfigurer {
     @Bean
-    public DefaultWebSocketHandler defaultWebSocketHandler() {
-        return new DefaultWebSocketHandler();
-    }
-
-    @Bean
-    public WebSocket webSocket() {
-        return new WebSocketImpl();
+    public MyWebSocketHandler defaultWebSocketHandler() {
+        return new MyWebSocketHandler();
     }
 
     @Bean

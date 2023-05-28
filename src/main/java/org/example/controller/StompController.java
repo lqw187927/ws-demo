@@ -25,4 +25,6 @@ public class StompController {
     public String httpGreeting(String message) {
         return "http-reply: " + message;
     }
+
+
 }

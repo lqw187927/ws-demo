@@ -1,12 +1,8 @@
 package org.example.controller;
 
-import org.example.service.WebSocket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
 
 /**
  * @Author luqiwei
@@ -14,12 +10,10 @@ import java.io.IOException;
  */
 @RestController
 public class TestController {
-
     @Autowired
-    private WebSocket webSocket;
+    private SimpMessagingTemplate messagingTemplate;
 
-    @RequestMapping("/send")
-    public void send(@RequestParam String userId, @RequestParam String message) throws IOException {
-        webSocket.sendMessage(userId, message);
+    public void test() {
+        messagingTemplate.convertAndSend(null);
     }
 }
